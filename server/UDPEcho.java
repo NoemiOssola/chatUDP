@@ -1,18 +1,11 @@
 package serverudpchat;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.io.*;
+import java.net.*;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author 
 
 //utilizzo la classe Clients per memorizzare indirizzo e porta dei clients che si collegano al server
 //questo poi mi servira' per poter inviare i messaggi ricevuti da un client a tutti i client connessi
