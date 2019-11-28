@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 
 //utilizzo la classe Clients per memorizzare indirizzo e porta dei clients che si collegano al server
 //questo poi mi servira' per poter inviare i messaggi ricevuti da un client a tutti i client connessi
+
 class Clients {
     InetAddress addr;
     int port;
@@ -81,4 +82,26 @@ public class UDPEcho implements Runnable {
             }
         }
     }
+     private void aggiungiUser (String messaggio, Socket s, Socket clientS) throws IOException
+   {
+      if (clientS.equals(client))
+      {
+         StringBuffer risposta = new StringBuffer();
+         for (int i = 0; i < client.size(); i++)
+         {
+            risposta.append(client.get(i));
+            risposta.append("~");
+         }
+
+         String stringMsg = "-" + risposta.toString();
+         System.out.println(stringMsg);
+         new DataOutputStream(clientS.getOutputStream()).writeBytes(stringMsg + "\n");
+      }
+      else
+      {
+         String nome = messaggio.substring(1);
+         new DataOutputStream(cl.getOutputStream()).writeBytes("Nuovo utente" + nome +
+            "\n");					
+      }		
+   }
 }
