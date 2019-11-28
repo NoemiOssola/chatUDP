@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package client1;
 
 import java.awt.GridLayout;
@@ -12,12 +8,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.net.*;
 import java.io.UnsupportedEncodingException;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+
 
 /**
  *
@@ -34,9 +27,7 @@ public class Gui extends JFrame implements ActionListener {
     JButton invia;
     JButton inizia;
 
-     DatagramSocket socket = new DatagramSocket();
-
-    //private static String passaggio = "";
+    DatagramSocket socket = new DatagramSocket();
 
     public Gui() throws SocketException {
        
@@ -51,7 +42,6 @@ public class Gui extends JFrame implements ActionListener {
                 try {
                     socket.receive(dp);
                     String received = new String(dp.getData(), 0, dp.getLength(), "ISO-8859-1");
-                    //passaggio = received;
                     output.setText(received);
 
                 } catch (IOException ex) {
