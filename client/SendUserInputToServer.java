@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package client1;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.util.Scanner;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Prof Matteo Palitto 
- */
 public class SendUserInputToServer implements Runnable {
     DatagramSocket socket;
     InetAddress address;
@@ -27,9 +17,7 @@ public class SendUserInputToServer implements Runnable {
         this.address = address;
         this.UDP_port = UDP_port;
     }
-    /**
-     *
-     */
+  
     @Override
     public void run() {
 
